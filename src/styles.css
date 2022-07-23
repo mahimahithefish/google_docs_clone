@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Rubik&display=swap");
+.App {
+  text-align: center;
+  font-family: Roboto;
+}
+
+.google-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.logout-btn {
+  width: 100px;
+  height: 40px;
+  background-color: #2196f3;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.logout-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* .add-doc {
+} */
+
+.add-Title {
+  height: 100px;
+  padding: 10px;
+  outline: none;
+  border-radius: 0;
+  border: 1px solid gray;
+  font: Roboto;
+}
+
+.title-input {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.add-btb {
+  width: 100px;
+  background-color: #2196f3;
+  color: whitesmoke;
+  font: Roboto;
+  cursor: pointer;
+}
+
+.grid-main {
+  margin: 20px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 15px;
+}
+
+.grid-child {
+  border: 3px solid #2196f3;
+}
+
+.grid-child:hover {
+  background-color: #bbdefb;
+  cursor: pointer;
+}
+
+.back-btn {
+  width: 100px;
+  height: 40px;
+  positon: absolute;
+  left: 10px;
+  top: 25px;
+  cursor: pointer;
+}
