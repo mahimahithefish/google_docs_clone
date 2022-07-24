@@ -1,3 +1,4 @@
+// Opening a document and autosaves the document. 
 import { useState, useEffect } from "react";
 
 import ReactQuill from "react-quill"; // used for the editor window
@@ -44,7 +45,7 @@ export default function Editor({ database }) {
     });
   }, []);
 
-  
+
   return (
     <div>
       <div>
