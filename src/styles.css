@@ -1,17 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Rubik&display=swap");
+/* importing google fonts*/ 
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Rubik&display=swap"); 
+
 .App {
   text-align: center;
   font-family: Roboto;
 }
 
-.google-btn {
+.google-btn { /* styling for sign-in button*/ 
   display: flex;
   justify-content: center;
   align-items: center;
   height: 80vh;
 }
 
-.logout-btn {
+.logout-btn { /* styling for sign-out button */ 
   width: 100px;
   height: 40px;
   background-color: #2196f3;
@@ -26,10 +28,8 @@
   right: 10px;
 }
 
-/* .add-doc {
-} */
 
-.add-Title {
+.add-Title { /* styling for the "add title" button */ 
   height: 100px;
   padding: 10px;
   outline: none;
@@ -38,13 +38,13 @@
   font: Roboto;
 }
 
-.title-input {
+.title-input { 
   margin-top: 30px;
   display: flex;
   justify-content: center;
 }
 
-.add-btb {
+.add-btb { /* add button on the side of the titile input field */ 
   width: 100px;
   background-color: #2196f3;
   color: whitesmoke;
@@ -52,23 +52,23 @@
   cursor: pointer;
 }
 
-.grid-main {
+.grid-main { /* allows for the documents to be in a grid-like fashion*/ 
   margin: 20px;
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 15px;
 }
 
-.grid-child {
+.grid-child { /* grid border */ 
   border: 3px solid #2196f3;
 }
 
-.grid-child:hover {
+.grid-child:hover { /* when selecting a document, the grid in it will be shaded in*/ 
   background-color: #bbdefb;
   cursor: pointer;
 }
 
-.back-btn {
+.back-btn { /* styling for the back button*/ 
   width: 100px;
   height: 40px;
   positon: absolute;
