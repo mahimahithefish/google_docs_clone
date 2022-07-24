@@ -1,19 +1,24 @@
-import { onAuthStateChanged, signOut, getAuth } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { onAuthStateChanged, signOut, getAuth } from "firebase/auth"; // for auth
+import { useNavigate } from "react-router-dom"; // chnaging webpages
 import { useEffect, useState } from "react";
-import Button from "@mui/material/Button";
+
+import Button from "@mui/material/Button"; // "add a new dowment" button
 import Add from "@mui/icons-material/Add";
+
 import { database } from "../firebaseConfig";
 import { collection, addDoc, onSnapshot } from "firebase/firestore";
-import { ToastContainer, toast } from "react-toastify";
+
+import { ToastContainer, toast } from "react-toastify"; // notification banners 
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Home({ database }) {
   let databaseCollection = collection(database, "docs-data");
   let userEmail = localStorage.getItem("userEmail");
+
   const [isAdd, setIsAdd] = useState(false);
   const [title, setTitle] = useState("");
   const [docsData, setDocsData] = useState([]);
+
   let auth = getAuth();
   let navigate = useNavigate();
   const logOut = () => {
@@ -24,7 +29,6 @@ export default function Home({ database }) {
 
   useEffect(() => {
     onAuthStateChanged(auth, (response) => {
-      // console.log(response);
       if (response) {
         // we are logged in
         // navigate to the homepage.
@@ -36,28 +40,27 @@ export default function Home({ database }) {
     });
   }, []);
 
-  const addDocs = () => {
+  const addDocs = () => { // EMpty document in the database after it is created w/ a title 
     addDoc(databaseCollection, {
       title: title,
       author: userEmail,
       body: ""
     })
       .then((response) => {
-        toast.success("Data created sucessfully!", {
+        toast.success("New document created", { // notify
           autoClose: 1000
         });
         setIsAdd(false);
         setTitle("");
       })
       .catch(() => {
-        toast.error("Cannot create a new document!", {
+        toast.error("Error creating new document", {
           autoClose: 1000
         });
       });
   };
 
   const openEditor = (id) => {
-    //console.log(id);
     navigate(`/editor/${id}`); // changing to the editor page w/ the document w/ unique id
   };
 
@@ -74,9 +77,8 @@ export default function Home({ database }) {
   return (
     <div>
       <ToastContainer />
-      {/* <h1>Home Page!</h1> */}
       <div className="logout-container">
-        <button className="logout-btn" onClick={logOut}>
+        <button className="logout-btn" onClick={logOut}> // Logging out 
           Log Out{" "}
         </button>
       </div>
@@ -85,20 +87,18 @@ export default function Home({ database }) {
         onClick={() => setIsAdd(!isAdd)} // when clicking "Create a new Document" then "add item" will allow input
         variant="outlined"
         startIcon={<Add />}
-      >
-        Create A new Document
+      >Create A new Document
       </Button>
       {!isAdd ? (
-        <div className="title-input">
+        <div className="title-input"> 
           <input
-            placeholder="Title"
+            placeholder="Title" // add title to the new document 
             className="add-title"
             value={title}
             onChange={(event) => {
               setTitle(event.target.value);
             }}
           />
-
           <button className="add-btn" onClick={addDocs}>
             {" "}
             Add{" "}
@@ -107,9 +107,9 @@ export default function Home({ database }) {
       ) : (
         <></>
       )}
-      <div className="grid-main">
-        {docsData.map((doc) => {
-          return (
+      <div className="grid-main"> 
+        {docsData.map((doc) => { 
+          return ( // displaying the document in a grid-like manner
             <div className="grid-child" onClick={() => openEditor(doc.id)}>
               <h3>{doc.title}</h3>
             </div>
@@ -119,4 +119,3 @@ export default function Home({ database }) {
     </div>
   );
 }
-// Log out Button
