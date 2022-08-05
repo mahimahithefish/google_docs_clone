@@ -1,5 +1,5 @@
 # Docs Clone
-Created a full-stack web application to recreate Google Docs using firebase, JavaScript, and react
+Recreated Google Docs using firebase, Material-ui, and react
 
 ## Tech Stack
 * Frontend: React, Material-UI
